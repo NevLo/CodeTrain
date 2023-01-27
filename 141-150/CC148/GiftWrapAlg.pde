@@ -3,37 +3,40 @@ ArrayList<PVector> hull;
 
 
 void setup() {
-  size(800, 600);
+  //size(800, 600);
+  fullScreen();
   points = new ArrayList<>();
   hull = new ArrayList<>();
-  /*
-  for (int i = 0; i < 30; i++) {
-    float x = random(width/2) + width/4;
-    float y = random(height/2) + height/4;
+
+  for (int i = 0; i < 50; i++) {
+    float x = random(width);
+    float y = random(height);
     points.add(new PVector(x, y));
   }
-  */
-  //hull = wrap(points);
+
+  hull = wrap(points);
 }
-void keyPressed(){
- if(keyCode == ENTER){
-  hull = wrap(points); 
- }
+void keyPressed() {
+  if (keyCode == ENTER) {
+    hull = wrap(points);
+  } else if (keyCode == DELETE) {
+    setup();
+  }
 }
-void mousePressed(){
- points.add(new PVector(mouseX, mouseY)); 
+void mousePressed() {
+  points.add(new PVector(mouseX, mouseY));
 }
 
 void draw() {
   background(51);
-  noFill(); 
+  noFill();
   stroke(255, 0, 0);
   strokeWeight(2);
   beginShape();
   for (PVector h : hull) {
     vertex(h.x, h.y);
   }
-  
+
   endShape(CLOSE);
   stroke(255);
   strokeWeight(4);
