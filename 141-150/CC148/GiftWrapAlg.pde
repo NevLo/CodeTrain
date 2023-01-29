@@ -69,6 +69,7 @@ ArrayList<PVector> wrap(ArrayList<PVector> points) {
   } while (hul.get(0) != endpoint);
   return hul;
 }
+//checks to see if the cross product is greater than 0.
 boolean leftOfLine(PVector c, PVector a, PVector b) {
   return ((b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)) > 0;
 }
